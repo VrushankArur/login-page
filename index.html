@@ -1,41 +1,136 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Login / Sign Up Form UI</title>
-  <link rel="stylesheet" href="./index.css">
-
-</head>
+    <meta name  = "viewport" content = "width = device-width, initial -scale = 1.0">
+    <title>SKYCRAWLER</title>
+    <link rel = "stylesheet " href = "style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+</head> 
 <body>
+    <section class="header">
+        <nav>
+            <a href = "index.html"><img src = "images/logo.png"></a>
+            <div class="nav-links" id = "navLinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="https://nova.astrometry.net/upload">PLATESOLVING</a></li>
+                    <li><a href="">WEATHER HELPER</a></li>
+                    <li><a href="">BLOG</a></li>
+                    <li><a href="">CONTACT</a></li>
+                    <li><a href="C:\mini_projjie\login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+        <div class ="textbox">
+            <h1>PLATESOLVING MADE EASY!!</h1>
+            <p>This is your one shot solution to platesolve a given image for free as well as get a prediction about weather<br> in the nights to come
+                we use astrometry.net, and another weather api to get all out results!!</p>
+            <a href = "" class = "hero-btn">Heres more about us..</a>
 
-<div class="container">
-  <div class="message signup">
-    <div class="btn-wrapper">
-      <button class="button" id="signup">Sign Up</button>
-      <button class="button" id="login"> Login</button>
-    </div>
-  </div>
-  <div class="form form--signup">
-    <div class="form--heading">Welcome! Sign Up</div>
-    <form autocomplete="off">
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button class="button">Sign Up</button>
-    </form>
-  </div>
-  <div class="form form--login">
-    <div class="form--heading">Welcome back! </div>
-    <form autocomplete="off">
-      <input type="text" placeholder="Name">
-      <input type="password" placeholder="Password">
-      <button class="button">Login</button>
-    </form>
-  </div>
-</div>
+        </div>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script  src="./index.js"></script>
-
+    </section>
+    <section class  = "weather" >
+        <h1>Weather services that we offer</h1>
+        <p>We provide you with weather data for the next 10 days, as well as the dats on which there will be a clear sky!</p>
+        <div class = "row">
+            <div class = "weather-ten">
+                <h3>CURRENT WEATHER</h3>
+                <p>
+                    Here's the weather for your location today, right now!!
+                </p>
+                </p>
+                <div id = searchForm>
+                    <input type = "search"
+                    placeholder="Enter Your city"
+                    id = "searchInput"
+                    required
+                    autocomplete = "off"
+                    />
+                    <br>
+                    <button id="searchButton">Search</button>
+                </div>
+                <main id="appLoc">
+                    <div id="location">
+                        
+                        <div id="city"></div>
+                        <div id="temp">
+                            <div id="tempVal"></div>
+                        </div>
+                        <div id="clouds_perc">
+                        </div>
+                    </div>
+                    <div id="climate">
+                    </div>
+                    
+                </main>
+            </div> 
+            
+        </div>
+        <div class = "weather-fi">
+            <h3>5 day Forecast</h3>
+            <p>
+                Here is the data that will be provided by the weather api for the next 5 days and from that
+                we will be getting a estimate as to how and when we can take more new photos
+            </p>
+            <p>
+                <main id="5_day">
+                    <div id = "weatherContainer">
+                        <div id="iconsContainer">    
+                            <div class = "icons">
+                                <h3 class="weather" id="day1"></h3>
+                                <p class="minValues" id="day1Min"></p>
+                                <p class="maxValues" id="day1Max"></p>
+                                <p class="clouds" id="day1clouds"></p>
+                            </div>
+                            <div class = "icons">
+                                <h3 class="weather" id="day2"></h3>
+                                <p class="minValues" id="day2Min"></p>
+                                <p class="maxValues" id="day2Max"></p>
+                            </div>
+                            <div class = "icons">
+                                <h3 class="weather" id="day3"></h3>
+                                <p class="minValues" id="day3Min"></p>
+                                <p class="maxValues" id="day3Max"></p>
+                            </div>
+                            <div class = "icons">
+                                <h3 class="weather" id="day4"></h3>
+                                <p class="minValues" id="day4Min"></p>
+                                <p class="maxValues" id="day4Max"></p>
+                            </div>
+                            <div class = "icons">
+                                <h3 class="weather" id="day5"></h3>
+                                <p class="minValues" id="day5Min"><span></span></p>
+                                <p class="maxValues" id="day5Max"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </main>
+                
+            </p>
+        </div>
+        
+    </section>
+    <!---------------javascript for toggle menu----------------->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showmenu()
+        {
+            navLinks.style.right = "0";
+        }   
+        function hidemenu()
+        {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+    <script src="./script.js"></script>
+    <script src = "./script_forecast.js"></script>
 </body>
 </html>
